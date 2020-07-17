@@ -1,5 +1,8 @@
 # NodeJS App
 
+## [Web Viewer(click)](https://nodejsappsens.herokuapp.com/)
+
+
 + init
     ```git
     git init
@@ -9,9 +12,11 @@
     ```
     npm install --save express
     ```
-+ install ejs
++ install ejs / ejs-lint
     ```
     npm install --save ejs
+
+    npm install -g ejs-lint
     ```
 
     ```
@@ -27,6 +32,7 @@
     │  │      └─router
 
     └─views
+        ├─components
         ├─layouts
         └─pages
     ```
