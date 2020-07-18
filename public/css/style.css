@@ -1,0 +1,20 @@
+@import 'reset.css';
+
+body{
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+header{
+    background: blue;
+    width: 100%;
+    height: 80px;
+}
+section{
+    background: red;
+    width: 100%;
+    min-height: 960px;
+}
+
+footer{
+    border-top: 1px solid #eee;
+}

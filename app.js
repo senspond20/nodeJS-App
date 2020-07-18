@@ -5,7 +5,7 @@ const PORT = process.env.PORT || 5000
 
 const app = express();
 
-  // .use(express.static(path.join(__dirname, 'public')))
+app.use(express.static(path.join(__dirname, 'public')))
 
 // 템플릿 엔진 세팅
 app.set('views', path.join(__dirname, 'views'))
@@ -37,5 +37,7 @@ app.get('/about',(req,res) =>{
     address : siteData.address
    })
 });
+
+
 
 

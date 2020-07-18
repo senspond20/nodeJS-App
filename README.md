@@ -31,6 +31,8 @@
     │  │      ├─middleware
     │  │      └─router
 
+    └─public
+
     └─views
         ├─components
         ├─layouts
