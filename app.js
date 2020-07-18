@@ -18,9 +18,10 @@ app.set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   // .engine('.html',require('ejs').renderFile)
   .use(require('express-ejs-layouts'))
-  .set('layout', 'layouts/layout');
- 
-// listening
+  .set('layout', 'layouts/layout')
+  .set("layout extractScripts", true); 
+
+  // listening
 app.listen(PORT, () => console.log(`Listening on http://localhost:${ PORT }`))
 
 
