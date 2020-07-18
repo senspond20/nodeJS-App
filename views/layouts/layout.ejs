@@ -5,14 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title><%=title %></title>
+
+    <!-- global style-->
     <link rel="stylesheet" href="css/style.css">
 
-    <!-- ejs css-selecter -->
-    <% }else if(styleNo == 1) { %>
+    <!-- ejs css-select -->
+    <% if(styleNo == 1) { %>
      <link rel="stylesheet" href="css/about.css">
     <% }else if(styleNo == 2) { %>
 
-    <% }else {%>
+    <% }else { %>
      <link rel="stylesheet" href="css/home.css">
     <% } %>
 
