@@ -1,30 +1,14 @@
-<!DOCTYPE html>
-<html lang="ko">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><%=title %></title>
-    <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <%- include ('../layouts/header') %>
-   
-    <section>
-        <h1>About</h1>
-    
-        <article>
-            <h2>소개</h2>
-            <p>안녕하세요</p>
-        </article>
-    
-        <article>
-            <h2>오시는길</h2>
-            <%= address %>
-            <%- include ('../components/map') %>
-        </article>
-    </section>
+<!-- about -->
+<h1>About</h1>
 
-    <%- include ('../layouts/footer') %>
+<article>
+    <h2>소개</h2>
+    <p>안녕하세요</p>
+</article>
 
-</body>
-</html>
+<article>
+    <h2>오시는길</h2>
+    <%= address %>
+    <%- include ('../components/map') %>
+</article>
+

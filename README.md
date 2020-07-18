@@ -12,11 +12,12 @@
     ```
     npm install --save express
     ```
-+ install ejs / ejs-lint
++ install ejs / ejs-layouts / ejs-lint
     ```
     npm install --save ejs
-
+    npm install --save express-ejs-layouts
     npm install -g ejs-lint
+    
     ```
 
     ```
