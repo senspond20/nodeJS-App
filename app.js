@@ -19,15 +19,23 @@ app.listen(PORT, () => console.log(`Listening on http://localhost:${ PORT }`))
 const siteData ={
   title : "nodeJs",
   //
+
+  address : "서울특별시 역삼동 테헤란로"
 }
 
 // 라우터 랜더링
-app.get('/', (req, res) => {
-  res.render('pages/index',{title: "HOME |" + siteData.title})
-})
 
-app.get('/about',(req,res)=>{
-  res.render('pages/about',{title: "About |" + siteData.title})
-})
+// Home
+app.get('/', (req, res) => {
+  res.render('pages/index',{title: "HOME | " + siteData.title})
+});
+
+// About
+app.get('/about',(req,res) =>{
+  res.render('pages/about', {
+    title: "About | " + siteData.title,
+    address : siteData.address
+   })
+});
 
 

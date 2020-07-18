@@ -7,11 +7,21 @@
 </head>
 <body>
     <%- include ('../layouts/header') %>
-    <h1>About</h1>
+   
+    <section>
+        <h1>About</h1>
+    
+        <article>
+            <h2>소개</h2>
+            <p>안녕하세요</p>
+        </article>
+    
+        <article>
+            <h2>오시는길</h2>
+            <%= address %>
+            <%- include ('../components/map') %>
+        </article>
+    </section>
 
-    <h2>소개</h2>
-
-    <h2>오시는길</h2>
-    <%- include ('../components/map') %>
 </body>
 </html>
