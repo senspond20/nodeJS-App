@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')))
 // view 템플릿 엔진 set
 app.set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
-  .engine('.html',require('ejs').renderFile)
+  // .engine('.html',require('ejs').renderFile)
   .use(require('express-ejs-layouts'))
   .set('layout', 'layouts/layout');
  
@@ -26,15 +26,19 @@ app.listen(PORT, () => console.log(`Listening on http://localhost:${ PORT }`))
 
 // 라우터 랜더링
 
-// Home
+// 0. Home 
 app.get('/', (req, res) => {
+  app.locals.styleNo = 0;
   res.render('pages/index',{title: "HOME | " + siteData.title})
+  
 });
 
-// About
+//1. About
 app.get('/about',(req,res) =>{
+  app.locals.styleNo = 1;
   res.render('pages/about', {
        title: "About | " + siteData.title,
-    address : siteData.address
+       address : siteData.address
    })
+
 });

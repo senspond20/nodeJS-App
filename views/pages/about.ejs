@@ -1,28 +1,15 @@
 <!-- about -->
-<!DOCTYPE html>
-<html lang="ko">
 
-<head>
-    <style>
-        h1 {
-            font-size: 40px;
-        }
-    </style>
-</head>
+<h1>About</h1>
 
-<body>
-    <h1>About</h1>
+<article>
+    <h2>소개</h2>
+    <p>안녕하세요</p>
+</article>
 
-    <article>
-        <h2>소개</h2>
-        <p>안녕하세요</p>
-    </article>
+<article>
+    <h2>오시는길</h2>
+    <%= address %>
+    <%- include ('../components/map') %>
+</article>
 
-    <article>
-        <h2>오시는길</h2>
-        <%= address %>
-        <%- include ('../components/map') %>
-    </article>
-</body>
-
-</html>
