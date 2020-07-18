@@ -1,27 +1,40 @@
 function Calendar(Date,  CalTableId) {
     this.tbl = document.getElementById(CalTableId); 
     this.isFirst = true;
-    this.today = Date;
+    this.year = Date.getFullYear();
+    this.month = Date.getMonth();
+    this.date = Date.getDate();
   }
  
   Calendar.prototype.setPrev = function(){
-    const d = this.today;
-    this.today = new Date(d.getFullYear(), d.getMonth() - 1, d.getDay());
-    this.build();
+
+    if(this.month <= 0){
+      this.month = 11;
+      this.year--;
+    }else{
+      this.month--;
+    }
+      this.build();
   }
   Calendar.prototype.setNext = function(){
-    const d = this.today;
-    this.today = new Date(d.getFullYear(), d.getMonth() + 1, d.getDay());
+    if(this.month >=11){
+      this.month = 0;
+      this.year++;
+    }else{
+      this.month++;
+    }
     this.build();
   }
 
   Calendar.prototype.build = function(){
+    console.log('build');
+
     let i = 0;
     let row = null;  // 행
     let cell = null; // 열
     const t = this.tbl;
-    const year = this.today.getFullYear();
-    const month = this.today.getMonth();
+    const year = this.year;
+    const month = this.month;
 
     // 달력이 처음실행되면
     if(this.isFirst){
