@@ -5,12 +5,12 @@ body{
 }
 
 header{
-    background: blue;
+    border-bottom: 1px solid #eee;
     width: 100%;
     height: 80px;
 }
 section{
-    background: red;
+    background: #fff;
     width: 100%;
     min-height: 960px;
 }

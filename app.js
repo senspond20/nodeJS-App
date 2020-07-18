@@ -17,7 +17,8 @@ app.use(express.static(path.join(__dirname, 'public')))
 app.set('views', path.join(__dirname, 'views'))
   .set('view engine', 'ejs')
   .engine('.html',require('ejs').renderFile)
-  .use(require('express-ejs-layouts'));
+  .use(require('express-ejs-layouts'))
+  .set('layout', 'layouts/layout');
  
 // listening
 app.listen(PORT, () => console.log(`Listening on http://localhost:${ PORT }`))
