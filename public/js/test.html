@@ -7,10 +7,24 @@
 </head>
 <body>
     <table class ="calenar" id ="cal"></table>
-    <script src ='calendar.js'></script>
+    <!-- <script src ='cal.min.js'></script> -->
+    <script src ='calendarP.js'></script>
+    <!-- <script src ='calendarM.js'></script> -->
     <script>
         (function(){
-            new Calendar(new Date(), "cal").build();  
+            var c = new Calendar(new Date(), "cal");
+            c.build();
+          
+            document.getElementById("p_cal").onclick = function(e){
+                e.preventDefault();
+                c.isFirst = false;
+                c.setPrev();
+            }
+            document.getElementById("n_cal").onclick = function(e){
+                e.preventDefault();
+                c.isFirst = false;
+                c.setNext();
+            }
         })();
     </script>
 </body>

@@ -5,9 +5,17 @@ function Calendar(Date,  CalTableId) {
     this.month = Date.getMonth();
     this.date = Date.getDate();
   }
- 
-  Calendar.prototype.setPrev = function(){
+  Calendar.prototype.alterYear = function(year){
+    this.year = year;
+    this.build();
+  }
+  Calendar.prototype.alterMonth = function(month){
+    // 1->0 : month - zero index 
+    this.month = month -1;
+    this.build();
+  }
 
+  Calendar.prototype.setPrev = function(){
     if(this.month <= 0){
       this.month = 11;
       this.year--;
@@ -27,14 +35,12 @@ function Calendar(Date,  CalTableId) {
   }
 
   Calendar.prototype.build = function(){
-    console.log('build');
-
-    let i = 0;
-    let row = null;  // 행
-    let cell = null; // 열
-    const t = this.tbl;
-    const year = this.year;
-    const month = this.month;
+    var index = 0;
+    var row = null;  // 행
+    var cell = null; // 열
+    var t = this.tbl;
+    var year = this.year;
+    var month = this.month;
 
     // 달력이 처음실행되면
     if(this.isFirst){
@@ -43,36 +49,23 @@ function Calendar(Date,  CalTableId) {
           row = t.insertRow();
           cell = row.insertCell();
 
-          const prev = "prev" + t.id;
-          const next = "next" + t.id;
+          var prev = "p_" + t.id;
+          var next = "n_" + t.id;
 
           cell.innerHTML = "<button id =" + prev + ">&lt;</button>"; // 이전 달 버튼
-          document.getElementById(prev)
-                .addEventListener('click',(e)=>{
-                e.preventDefault();
-                this.isFirst = false;
-                this.setPrev();
-          })
-          
+   
           cell = row.insertCell();
           cell.colSpan = 5;
           cell.innerHTML =  "<div id= head" + t.id + ">" + year + "년" + (month + 1) + "월</div>";
-
           cell = row.insertCell();
           cell.innerHTML = "<button id =" + next + ">&gt;</button>"; // 다음 달 버튼
-          document.getElementById(next)
-              .addEventListener('click',(e)=>{
-              e.preventDefault();
-              this.isFirst = false;
-              this.setNext();
-         })
 
           // 2. 요일 행을 그린다.
-          const week = ["일","월","화","수","목","금","토"];
+          var week = ["일","월","화","수","목","금","토"];
           row = t.insertRow();
-          for(i= 0; i < week.length; i++){
+          for(index= 0; index < week.length; index++){
             cell = row.insertCell()
-            cell.textContent = week[i];
+            cell.textContent = week[index];
           }
         
      // 아니면
@@ -90,26 +83,22 @@ function Calendar(Date,  CalTableId) {
         "<div id= head" + t.id + ">" + year + "년" + (month + 1) + "월</div>";
     }
 
-      const nMonth = new Date(year, month, 1);      // 이번달의 첫번째날
-      const lastDate = new Date(year, month + 1, 0); //이번달의 마지막날
+      var nMonth = new Date(year, month, 1);      // 이번달의 첫번째날
+      var lastDate = new Date(year, month + 1, 0); //이번달의 마지막날
   
       row = t.insertRow();
-      let cnt = 0;
+      var cnt = 0;
 
-      for (i = 0 ; i < nMonth.getDay(); i++) {
+      for (index = 0 ; index < nMonth.getDay(); index++) {
         cell = row.insertCell();
         cnt++;
       }
       //달력 출력
-      for (i = 1; i <= lastDate.getDate(); i++) {
+      for (index = 1; index <= lastDate.getDate(); index++) {
         cell = row.insertCell();
-        cell.textContent = i;
+        cell.textContent = index;
 
         if (cnt++ && cnt % 7 == 0)      
              row = t.insertRow();
         }
  }
-
-
-
-
