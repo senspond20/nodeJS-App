@@ -1,23 +1,24 @@
+<h1>TODAY : <%=year %>-<%=month %>-<%=date %></h1>
 <form action="gogogo">
     <select name ="year">
-        <option><%= year -5%></option>
-        <option><%= year -4%></option>
-        <option><%= year -3%></option>
-        <option><%= year -2%></option>
-        <option><%= year -1%></option>
-        <option selected><%= year %></option>
-        <option><%= year +1%></option>
-        <option><%= year +2%></option>
-        <option><%= year +3%></option>
-        <option><%= year +4%></option>
-        <option><%= year +5%></option>
+        <option><%= year -5%>년</option>
+        <option><%= year -4%>년</option>
+        <option><%= year -3%>년</option>
+        <option><%= year -2%>년</option>
+        <option><%= year -1%>년</option>
+        <option selected><%= year %>년</option>
+        <option><%= year +1%>년</option>
+        <option><%= year +2%>년</option>
+        <option><%= year +3%>년</option>
+        <option><%= year +4%>년</option>
+        <option><%= year +5%>년</option>
     </select>
     <select name="month">
         <% for(let i = 1; i <= 12; i++){ %>
             <%  if( locals.month == i){%>
-                <option selected><%=i %></option>
+                <option selected><%=i %>월</option>
                 <%  }else{%>
-                <option><%=i %></option>
+                <option><%=i %>월</option>
             <%  }%>
         <% } %>
     </select>
@@ -46,12 +47,12 @@
     $('#cal').fadeIn(500);
 
     $(window).on('scroll',function() {
-        if($(window).scrollTop() > 210){
+        if($(window).scrollTop() > 180){
         $('.cal_memo').fadeIn(500);
         }
     });
- 
-
+    // let temp = "";
+    // const tbl = document.getElementById('cal');
     function btnSet() {
         for (let i = 1; i <= 31; i++) {
             let date = $('#day' + i);
@@ -64,8 +65,16 @@
     }
     function showDay(date){
         // document.getElementById('memo_content').innerHTML = date;
+      
+    //     temp = tbl.rows[1].innerHTML;
+
+    //     while (tbl.rows.length > 2) {
+    //         tbl.deleteRow(tbl.rows.length - 1);
+    //       }
+        
+    //  tbl.rows[1].innerHTML = "<td>MEMO</td><td></td><td></td><td></td><td></td><td></td><td></td>";
+
         $('#memo_day').html(`${c.getYear()}년 ${c.getMonth()} 월 ${date} 일`);
-       
         // alert(date);
     }
 
@@ -73,6 +82,7 @@
     document.getElementById("p_cal").onclick = function (e) {
         e.preventDefault();
         c.isFirst = false;
+        // tbl.rows[1].innerHTML = temp;
         //.css('-webkit-transform', 'translateX(120px)')
 
         // $('#cal').hide();
@@ -84,7 +94,7 @@
     document.getElementById("n_cal").onclick = function (e) {
         e.preventDefault();
         c.isFirst = false;
-
+        // tbl.rows[1].innerHTML = temp;
         // $('#cal').hide();
         c.setNext();
         // $('#cal').fadeIn(700);

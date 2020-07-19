@@ -7,7 +7,7 @@
     /* width: 526px;
     height: 400px; */
     margin-top: 76px;
-    margin-bottom: 32px;
+    /* margin-bottom: 32px; */
     /* transition: 1.2s; */
     box-shadow: 5px 5px 10px 5px #d5d5d5;
 
@@ -53,7 +53,7 @@
 }
 
 .calenar button:hover {
-    background-color: rgb(248, 244, 231);
+    background-color: rgb(246, 246, 244);
 }
 .calenar tr:first-child {
     background-color: rgba(0,0,0,0.15);
@@ -71,11 +71,20 @@
     border-collapse: collapse;
     margin: 0 auto;
     left:0;
-    width: 526px;
+    width: 540px;
     height: 400px;
-    margin-top: 76px;
+    margin-top: 10px;
     margin-bottom: 32px;
     /* transition: 1.2s; */
     box-shadow: 5px 5px 10px 5px #d5d5d5;
   
+}
+
+@media (max-width : 600px){
+    .calenar {
+        width: 100%;
+    }
+    .cal_memo{
+        width: 100%;
+    }
 }
