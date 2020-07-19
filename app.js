@@ -1,5 +1,6 @@
 const express = require('express')
-const path = require('path')
+const path = require('path');
+const { REPL_MODE_SLOPPY } = require('repl');
 const PORT = process.env.PORT || 5000
 const app = express();
 
@@ -26,6 +27,24 @@ app.listen(PORT, () => console.log(`Listening on http://localhost:${ PORT }`))
 
 
 // 라우터 랜더링
+
+app.get('/getym',(req,res)=>{
+
+  const obj ={
+    year : req.param('year').slice(0,-1),
+    month : req.param('month').slice(0,-1)
+  }
+  console.log(obj.year + "," + obj.month);
+  res.json(obj); 
+});
+
+
+app.get('/cal/:id/:date',(req,res)=>{
+  res.json(req.params);
+  
+});
+
+
 const today = new Date();
 // 0. Home 
 app.get('/', (req, res) => {
@@ -39,20 +58,6 @@ app.get('/', (req, res) => {
   })  
 });
 
-app.get('/getym',(req,res)=>{
-
-  const obj ={
-    year : req.param('year').slice(0,-1),
-    month : req.param('month').slice(0,-1)
-  }
-  console.log(obj.year + "," + obj.month);
-  res.json(obj); 
-});
-
-app.get('/cal/:id/:date',(req,res)=>{
-  res.json(req.params);
-  
-});
 
 //1. About
 app.get('/about',(req,res) =>{
@@ -63,4 +68,27 @@ app.get('/about',(req,res) =>{
 
    })
 
+});
+var bodyParser = require('body-parser');
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+
+// login
+app.post("/user/login", function(req,res){
+  const obj ={
+    inputId : req.body.username,
+    inputPwd :req.body.password,
+  }
+
+  console.log(`${obj.inputId},${obj.inputPwd}`);
+  // res.json(obj); 
+  // res.send('성공');
+  if(obj.inputId == 'admin' && obj.inputPwd == '1234'){
+     console.log('비밀번호 일치');
+     res.send('ok')
+  }else{
+     console.log('비밀번호 불일치');
+     res.send('fail');
+  }
+  // res.redirect("/");
 });
