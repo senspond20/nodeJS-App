@@ -39,6 +39,16 @@ app.get('/', (req, res) => {
   })  
 });
 
+app.get('/getym',(req,res)=>{
+
+  const obj ={
+    year : req.param('year').slice(0,-1),
+    month : req.param('month').slice(0,-1)
+  }
+  console.log(obj.year + "," + obj.month);
+  res.json(obj); 
+});
+
 app.get('/cal/:id/:date',(req,res)=>{
   res.json(req.params);
   

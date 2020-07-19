@@ -1,5 +1,5 @@
 <h1>TODAY : <%=year %>-<%=month %>-<%=date %></h1>
-<form action="gogogo">
+<form action="/getym">
     <select name ="year">
         <% for(let i = -5; i <= 5; i++){ %>
             <%  if( i == 0){%>
@@ -18,7 +18,7 @@
             <%  }%>
         <% } %>
     </select>
-    <input type="submit" value="빌드" />
+    <input type="submit" value="TestRun" />
 </form>
 
 
