@@ -30,10 +30,12 @@ const today = new Date();
 // 0. Home 
 app.get('/', (req, res) => {
   app.locals.styleNo = 0;
+  // app.locals.months = today.getMonth()+1;
    res.render('pages/index',{
     title: "HOME | " + siteData.title,
     year : today.getFullYear(),
     month : today.getMonth()+1,
+    date : today.getDate()
   })  
 });
 

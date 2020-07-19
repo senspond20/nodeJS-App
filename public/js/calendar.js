@@ -14,6 +14,9 @@ function Calendar(Date,  CalTableId) {
     this.month = month -1;
     this.build();
   }
+  Calendar.prototype.getYear = function(){ return this.year; }
+  Calendar.prototype.getMonth = function(){return Number(this.month+1);}
+  Calendar.prototype.getDate = function(){ return this.date; }
 
   Calendar.prototype.setPrev = function(){
     if(this.month <= 0){
@@ -95,7 +98,8 @@ function Calendar(Date,  CalTableId) {
       //달력 출력
       for (index = 1; index <= lastDate.getDate(); index++) {
         cell = row.insertCell();
-        cell.textContent = index;
+        
+        cell.innerHTML = "<div class ='calday' id= day" + index + ">" + index + "</div>";
 
         if (cnt++ && cnt % 7 == 0)      
              row = t.insertRow();

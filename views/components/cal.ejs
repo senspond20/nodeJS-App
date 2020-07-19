@@ -1,26 +1,64 @@
+<form action="gogogo">
+    <select name ="year">
+        <option><%= year -5%></option>
+        <option><%= year -4%></option>
+        <option><%= year -3%></option>
+        <option><%= year -2%></option>
+        <option><%= year -1%></option>
+        <option selected><%= year %></option>
+        <option><%= year +1%></option>
+        <option><%= year +2%></option>
+        <option><%= year +3%></option>
+        <option><%= year +4%></option>
+        <option><%= year +5%></option>
+    </select>
+    <select name="month">
+        <% for(let i = 1; i <= 12; i++){ %>
+            <%  if( locals.month == i){%>
+                <option selected><%=i %></option>
+                <%  }else{%>
+                <option><%=i %></option>
+            <%  }%>
+        <% } %>
+    </select>
+    <input type="submit" value="빌드" />
+</form>
+
+
 <table class="calenar" id="cal"></table>
-<div id ="cal_day"></div>
-<script src="js/calendarP2.js"></script>
+<div class ="cal_memo">
+    <h2>Memo</h2>
+    <!-- <h3>dd</h3> -->
+    <div id ="memo_day"></div>
+    
+
+
+    <input type ="text">
+    <button>할일 추가</button>
+</div>
+<script src="js/calendar.js"></script>
 
 <script>
     const c = new Calendar(new Date(), "cal");
     c.build();
     btnSet();
+    showDay(c.getDate());
 
     function btnSet() {
         for (let i = 1; i <= 31; i++) {
-
-            let day = $('#day' + i);
-            if (day) {
-                day.on('click', function () {
+            let date = $('#day' + i);
+            if (date) {
+                date.on('click', function () {
                     showDay(i);
                 })
             }
         }
     }
-    function showDay(day){
-        $('#cal_day').textContent = day;
-        alert(day);
+    function showDay(date){
+        // document.getElementById('memo_content').innerHTML = date;
+        $('#memo_day').html(`${c.getYear()}년 ${c.getMonth()} 월 ${date} 일`);
+       
+        // alert(date);
     }
 
 
@@ -43,31 +81,5 @@
         c.setNext();
         // $('#cal').fadeIn(700);
         btnSet();
-    }
-    var table = document.getElementById("cal");
-
-    for (var i = 1; i < table.rows.length; i++) {
-
-        var row = "";
-
-        for (var j = 0; j < table.rows[i].cells.length; j++) {
-
-            var n = table.rows[i].cells[j].textContent;
-
-            if (n >= 1 && n <= 31) {
-
-                //     e.preventDefault();
-                //     alert(n);
-                // }
-            }
-            // if(table.rows[i].cells[j].textContent == 1){
-            //     console.log(i);
-            //     console.log(j);
-            // }
-            // row += " | ";
-        }
-
-        // alert(row);
-        // console.log(row);
     }
 </script>

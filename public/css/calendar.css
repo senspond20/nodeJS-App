@@ -58,3 +58,16 @@
     color: #333;
     box-shadow: 5px 5px 10px 5px #d5d5d5;
 }
+
+.cal_memo {
+    background-color: #fff;
+    border-radius: 18px;
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 526px;
+    height: 400px;
+    margin-top: 76px;
+    margin-bottom: 32px;
+    /* transition: 1.2s; */
+    box-shadow: 5px 5px 10px 5px #d5d5d5;
+}
