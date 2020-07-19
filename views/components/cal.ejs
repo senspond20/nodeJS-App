@@ -25,8 +25,8 @@
 </form>
 
 
-<table class="calenar" id="cal"></table>
-<div class ="cal_memo">
+<table class="calenar" id="cal" style="display: none;"></table>
+<div class ="cal_memo" style="display: none;">
     <h2>Memo</h2>
     <!-- <h3>dd</h3> -->
     <div id ="memo_day"></div>
@@ -43,6 +43,14 @@
     c.build();
     btnSet();
     showDay(c.getDate());
+    $('#cal').fadeIn(500);
+
+    $(window).on('scroll',function() {
+        if($(window).scrollTop() > 210){
+        $('.cal_memo').fadeIn(500);
+        }
+    });
+ 
 
     function btnSet() {
         for (let i = 1; i <= 31; i++) {
