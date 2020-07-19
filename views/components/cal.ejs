@@ -1,0 +1,73 @@
+<table class="calenar" id="cal"></table>
+<div id ="cal_day"></div>
+<script src="js/calendarP2.js"></script>
+
+<script>
+    const c = new Calendar(new Date(), "cal");
+    c.build();
+    btnSet();
+
+    function btnSet() {
+        for (let i = 1; i <= 31; i++) {
+
+            let day = $('#day' + i);
+            if (day) {
+                day.on('click', function () {
+                    showDay(i);
+                })
+            }
+        }
+    }
+    function showDay(day){
+        $('#cal_day').textContent = day;
+        alert(day);
+    }
+
+
+    document.getElementById("p_cal").onclick = function (e) {
+        e.preventDefault();
+        c.isFirst = false;
+        //.css('-webkit-transform', 'translateX(120px)')
+
+        // $('#cal').hide();
+        c.setPrev();
+
+        // $('#cal').fadeIn(700);
+        btnSet();
+    }
+    document.getElementById("n_cal").onclick = function (e) {
+        e.preventDefault();
+        c.isFirst = false;
+
+        // $('#cal').hide();
+        c.setNext();
+        // $('#cal').fadeIn(700);
+        btnSet();
+    }
+    var table = document.getElementById("cal");
+
+    for (var i = 1; i < table.rows.length; i++) {
+
+        var row = "";
+
+        for (var j = 0; j < table.rows[i].cells.length; j++) {
+
+            var n = table.rows[i].cells[j].textContent;
+
+            if (n >= 1 && n <= 31) {
+
+                //     e.preventDefault();
+                //     alert(n);
+                // }
+            }
+            // if(table.rows[i].cells[j].textContent == 1){
+            //     console.log(i);
+            //     console.log(j);
+            // }
+            // row += " | ";
+        }
+
+        // alert(row);
+        // console.log(row);
+    }
+</script>

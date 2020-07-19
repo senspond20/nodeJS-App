@@ -8,6 +8,8 @@
     height: 400px;
     margin-top: 76px;
     margin-bottom: 32px;
+    /* transition: 1.2s; */
+    box-shadow: 5px 5px 10px 5px #d5d5d5;
 
 }
 .calenar td {
@@ -15,6 +17,18 @@
     text-align: center;
     font-size: 25px;
 
+}
+.calenar .calday{
+    cursor: pointer;
+}
+.calenar tr:nth-child(2) td:nth-child(1),
+.calenar tr:nth-child(3) td:nth-child(1),
+.calenar tr:nth-child(4) td:nth-child(1),
+.calenar tr:nth-child(5) td:nth-child(1),
+.calenar tr:nth-child(6) td:nth-child(1),
+.calenar tr:nth-child(7) td:nth-child(1),
+.calenar tr:nth-child(8) td:nth-child(1){
+    color:red;
 }
 .calenar button {
     background-color: #fff;
@@ -29,18 +43,18 @@
     cursor: pointer;
     box-sizing: border-box;
     position: relative;
-
+    box-shadow: 5px 5px 10px 5px #d5d5d5;
 }
 
 .calenar button:hover {
-    background-color: skyblue;
+    background-color: rgb(248, 244, 231);
 }
 .calenar tr:first-child {
-    background-color: royalblue;
+    background-color: rgba(0,0,0,0.15);
     border-radius: 40px;
 }
 .calenar tr:first-child td:nth-child(2) {
-    font-size: 34px;
-     border-bottom: 1px solid rgba(0, 0, 0, 0.045);
-    color: #fff;
+    font-size: 30px;
+    color: #333;
+    box-shadow: 5px 5px 10px 5px #d5d5d5;
 }

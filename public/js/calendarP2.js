@@ -95,7 +95,8 @@ function Calendar(Date,  CalTableId) {
       //달력 출력
       for (index = 1; index <= lastDate.getDate(); index++) {
         cell = row.insertCell();
-        cell.textContent = index;
+        
+        cell.innerHTML = "<div class ='calday' id= day" + index + ">" + index + "</div>";
 
         if (cnt++ && cnt % 7 == 0)      
              row = t.insertRow();

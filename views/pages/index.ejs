@@ -2,22 +2,4 @@
 <h1>안녕하세요</h1>
 <p>현재 개발중인 사이트입니다.</p>
 
-<table class ="calenar" id ="cal"></table>
-<script src = "js/cal.min.js"></script>
-<script>
-    (function(){
-        const c = new Calendar(new Date(), "cal");
-            c.build();
-            
-            document.getElementById("p_cal").onclick = function(e){
-                e.preventDefault();
-                c.isFirst = false;
-                c.setPrev();
-            }
-            document.getElementById("n_cal").onclick = function(e){
-                e.preventDefault();
-                c.isFirst = false;
-                c.setNext();
-            }
-        })();
-</script>
+<%- include ('../components/cal') %>

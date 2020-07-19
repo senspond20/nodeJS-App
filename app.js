@@ -26,11 +26,19 @@ app.listen(PORT, () => console.log(`Listening on http://localhost:${ PORT }`))
 
 
 // 라우터 랜더링
-
+const today = new Date();
 // 0. Home 
 app.get('/', (req, res) => {
   app.locals.styleNo = 0;
-  res.render('pages/index',{title: "HOME | " + siteData.title})
+   res.render('pages/index',{
+    title: "HOME | " + siteData.title,
+    year : today.getFullYear(),
+    month : today.getMonth()+1,
+  })  
+});
+
+app.get('/cal/:id/:date',(req,res)=>{
+  res.json(req.params);
   
 });
 
@@ -39,7 +47,8 @@ app.get('/about',(req,res) =>{
   app.locals.styleNo = 1;
   res.render('pages/about', {
        title: "About | " + siteData.title,
-       address : siteData.address
+       address : siteData.address,
+
    })
 
 });
