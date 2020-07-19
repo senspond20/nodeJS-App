@@ -1,17 +1,13 @@
 <h1>TODAY : <%=year %>-<%=month %>-<%=date %></h1>
 <form action="gogogo">
     <select name ="year">
-        <option><%= year -5%>년</option>
-        <option><%= year -4%>년</option>
-        <option><%= year -3%>년</option>
-        <option><%= year -2%>년</option>
-        <option><%= year -1%>년</option>
-        <option selected><%= year %>년</option>
-        <option><%= year +1%>년</option>
-        <option><%= year +2%>년</option>
-        <option><%= year +3%>년</option>
-        <option><%= year +4%>년</option>
-        <option><%= year +5%>년</option>
+        <% for(let i = -5; i <= 5; i++){ %>
+            <%  if( i == 0){%>
+                <option selected><%= year %>년</option>
+                <%  }else{%>
+                <option><%= year + i%>년</option>
+            <%  }%>
+        <% } %>
     </select>
     <select name="month">
         <% for(let i = 1; i <= 12; i++){ %>
